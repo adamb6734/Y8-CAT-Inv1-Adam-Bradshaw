@@ -66,6 +66,10 @@ def simpletree(n):
 
     pen.forward(50)
 
-simpletree(4)
+    pen.left(30)
+    simpletree(n - 1)
 
+    pen.right(30)
+    simpletree(n - 1)
+simpletree(6)
 turtle.done()
