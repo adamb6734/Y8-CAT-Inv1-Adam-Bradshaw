@@ -55,21 +55,38 @@ screen = turtle.Screen()
 screen.bgcolor("White")
 
 pen = turtle.Turtle()
-pen.color("Blue")
+pen.color("Brown")
 pen.speed(0)
+pen.penup()
+pen.goto(0, -200)
+pen.pendown()
 
 pen.left(90)
 
-def simpletree(n):
+def simpletree(n, length):
     if n == 0:
         return
 
-    pen.forward(50)
+    pen.forward(length)
 
+    pos = pen.position()
+    dir = pen.heading()
     pen.left(30)
-    simpletree(n - 1)
+    simpletree(n-1, length * 0.7)
+
+    pen.penup()
+    pen.goto(pos)
+    pen.setheading(dir)
+    pen.pendown()
 
     pen.right(30)
-    simpletree(n - 1)
-simpletree(6)
+    simpletree(n-1, length * 0.7)
+
+    pen.penup()
+    pen.goto(pos)
+    pen.setheading(dir)
+    pen.pendown()
+
+simpletree(8, 80)
+
 turtle.done()
