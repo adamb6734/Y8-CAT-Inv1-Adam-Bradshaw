@@ -51,42 +51,57 @@ def fibonacci(n):
 
 import turtle
 
+#Create Screen
 screen = turtle.Screen()
 screen.bgcolor("White")
 
+#Create turtle object
 pen = turtle.Turtle()
 pen.color("Brown")
 pen.speed(0)
+
+#Move starting position to bottom of screen
 pen.penup()
 pen.goto(0, -200)
 pen.pendown()
 
+#Face turtle upwards
 pen.left(90)
 
-def simpletree(n, length):
+#Recursive function to draw fractal tree
+def simpletree(n):
     if n == 0:
-        return
+        return #Base case: stop recursion
 
-    pen.forward(length)
+    #Draw main branch
+    pen.forward(50)
 
+    #Save current position and direction
     pos = pen.position()
     dir = pen.heading()
+
+    #Draw left branch
     pen.left(30)
-    simpletree(n-1, length * 0.7)
+    simpletree(n-1)
 
+    #Return to saved position
     pen.penup()
     pen.goto(pos)
     pen.setheading(dir)
     pen.pendown()
 
+    #draw right branch
     pen.right(30)
-    simpletree(n-1, length * 0.7)
+    simpletree(n-1)
 
+    #return again to original position
     pen.penup()
     pen.goto(pos)
     pen.setheading(dir)
     pen.pendown()
 
-simpletree(8, 80)
+#test function
+simpletree(10)
 
+#keep window open
 turtle.done()
