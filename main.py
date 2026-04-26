@@ -101,7 +101,9 @@ def fractaltree(n, length, angle, scale):
     pen.pendown()
 
 #test function
-fractaltree(8, 100, 30, 0.75)
+n = int(input("Enter level: "))
+
+fractaltree(n,100, 30, 0.75)
 
 #keep window open
 turtle.done()
