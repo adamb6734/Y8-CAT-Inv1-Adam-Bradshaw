@@ -5,7 +5,7 @@ def startriangle(n):
         print("*" * n)
         startriangle(n-1)
 #task4
-# startriangle(5)
+#startriangle(5)
 
 def triangular(n):
     if n == 0:
@@ -13,7 +13,7 @@ def triangular(n):
     else:
         return n + triangular(n-1)
 #task5
-#print(triangular(6))
+#print(triangular(9))
 
 def fibonacci(n):
     if n <= 2:
@@ -69,39 +69,39 @@ pen.pendown()
 pen.left(90)
 
 #Recursive function to draw fractal tree
-def simpletree(n):
+def fractaltree(n, length, angle):
     if n == 0:
         return #Base case: stop recursion
 
     #Draw main branch
-    pen.forward(50)
+    pen.forward(length)
 
     #Save current position and direction
     pos = pen.position()
-    dir = pen.heading()
+    direction = pen.heading()
 
     #Draw left branch
-    pen.left(30)
-    simpletree(n-1)
+    pen.left(angle)
+    fractaltree(n-1, length, angle)
 
     #Return to saved position
     pen.penup()
     pen.goto(pos)
-    pen.setheading(dir)
+    pen.setheading(direction)
     pen.pendown()
 
     #draw right branch
-    pen.right(30)
-    simpletree(n-1)
+    pen.right(angle)
+    fractaltree(n-1, length, angle)
 
     #return again to original position
     pen.penup()
     pen.goto(pos)
-    pen.setheading(dir)
+    pen.setheading(direction)
     pen.pendown()
 
 #test function
-simpletree(10)
+fractaltree(5, 50, 30)
 
 #keep window open
 turtle.done()
