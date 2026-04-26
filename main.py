@@ -100,12 +100,13 @@ def fractaltree(n, length, angle, scale):
     pen.setheading(direction)
     pen.pendown()
 
-#test function
+#user input for parameters of the tree
+print("Fractal Tree Generator")
 print("Recommended input: (8,100,30,0.75)")
-n = int(input("Enter level: "))
-length = int(input("Enter length: "))
-angle = int(input("Enter angle: "))
-scale = float(input("Enter scale: "))
+n = int(input("Enter level(e.g 4, 6, 10): "))
+length = int(input("Enter length(e.g 100): "))
+angle = int(input("Enter angle(e.g 30): "))
+scale = float(input("Enter scale(e.g 0.75): "))
 
 fractaltree(n, length, angle, scale)
 
