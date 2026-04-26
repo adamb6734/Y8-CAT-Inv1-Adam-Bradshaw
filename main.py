@@ -82,7 +82,7 @@ def fractaltree(n, length, angle, scale):
 
     #Draw left branch
     pen.left(angle)
-    fractaltree(n-1, length, angle, scale)
+    fractaltree(n-1, length*scale, angle, scale)
 
     #Return to saved position
     pen.penup()
@@ -92,7 +92,7 @@ def fractaltree(n, length, angle, scale):
 
     #draw right branch
     pen.right(angle)
-    fractaltree(n-1, length, angle, scale)
+    fractaltree(n-1, length*scale, angle, scale)
 
     #return again to original position
     pen.penup()
@@ -101,7 +101,7 @@ def fractaltree(n, length, angle, scale):
     pen.pendown()
 
 #test function
-fractaltree(5, 50, 30, 0.7)
+fractaltree(8, 100, 30, 0.75)
 
 #keep window open
 turtle.done()
