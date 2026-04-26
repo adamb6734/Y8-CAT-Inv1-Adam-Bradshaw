@@ -69,7 +69,7 @@ pen.pendown()
 pen.left(90)
 
 #Recursive function to draw fractal tree
-def fractaltree(n, length, angle):
+def fractaltree(n, length, angle, scale):
     if n == 0:
         return #Base case: stop recursion
 
@@ -82,7 +82,7 @@ def fractaltree(n, length, angle):
 
     #Draw left branch
     pen.left(angle)
-    fractaltree(n-1, length, angle)
+    fractaltree(n-1, length, angle, scale)
 
     #Return to saved position
     pen.penup()
@@ -92,7 +92,7 @@ def fractaltree(n, length, angle):
 
     #draw right branch
     pen.right(angle)
-    fractaltree(n-1, length, angle)
+    fractaltree(n-1, length, angle, scale)
 
     #return again to original position
     pen.penup()
@@ -101,7 +101,7 @@ def fractaltree(n, length, angle):
     pen.pendown()
 
 #test function
-fractaltree(5, 50, 30)
+fractaltree(5, 50, 30, 0.7)
 
 #keep window open
 turtle.done()
