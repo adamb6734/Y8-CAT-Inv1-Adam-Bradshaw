@@ -1,4 +1,5 @@
 #fractal trees
+import random
 
 def startriangle(n):
     if n > 0:
@@ -99,6 +100,40 @@ def fractaltree(n, length, angle, scale):
     pen.goto(pos)
     pen.setheading(direction)
     pen.pendown()
+
+# Task 10: new function to later include randomness
+# currently same as fractaltree (will modify with randomness)
+def randomfractaltree(n, length, angle, scale):
+    if n == 0:
+        return #Base case: stop recursion
+
+    #Draw main branch
+    pen.forward(length)
+
+    #Save current position and direction
+    pos = pen.position()
+    direction = pen.heading()
+
+    #Draw left branch
+    pen.left(angle)
+    randomfractaltree(n-1, length*scale, angle, scale)
+
+    #Return to saved position
+    pen.penup()
+    pen.goto(pos)
+    pen.setheading(direction)
+    pen.pendown()
+
+    #draw right branch
+    pen.right(angle)
+    randomfractaltree(n-1, length*scale, angle, scale)
+
+    #return again to original position
+    pen.penup()
+    pen.goto(pos)
+    pen.setheading(direction)
+    pen.pendown()
+
 
 #User input (menu system for Task 9)
 print("Fractal Tree Generator")
