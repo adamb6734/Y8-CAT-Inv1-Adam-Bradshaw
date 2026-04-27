@@ -114,11 +114,14 @@ def randomfractaltree(n, length, angle, scale):
     pos = pen.position()
     direction = pen.heading()
 
+    #Randomness section for gamblers
     angle_variation = random.randint(-10, 10)
+    scale_variation = random.uniform(0.9, 1.1)
+
 
     # Draw left branch
     pen.left(angle + angle_variation)
-    randomfractaltree(n-1, length*scale, angle, scale)
+    randomfractaltree(n-1, length*scale*scale_variation, angle, scale)
 
     #Return to saved position
     pen.penup()
@@ -128,7 +131,7 @@ def randomfractaltree(n, length, angle, scale):
 
     #draw right branch
     pen.right(angle + angle_variation)
-    randomfractaltree(n-1, length*scale, angle, scale)
+    randomfractaltree(n-1, length*scale*scale_variation, angle, scale)
 
     #return again to original position
     pen.penup()
