@@ -68,7 +68,7 @@ pen.pendown()
 #Face turtle upwards
 pen.left(90)
 
-#Recursive function to draw fractal tree
+#Recursive function: draws a branch, then calls itself to draw smaller branches
 def fractaltree(n, length, angle, scale):
     if n == 0:
         return #Base case: stop recursion
@@ -100,7 +100,7 @@ def fractaltree(n, length, angle, scale):
     pen.setheading(direction)
     pen.pendown()
 
-#user input for parameters of the tree
+#User input (menu system for Task 9)
 print("Fractal Tree Generator")
 print("Recommended input: (8,100,30,0.75)")
 n = int(input("Enter level(e.g 4, 6, 10): "))
@@ -109,6 +109,9 @@ angle = int(input("Enter angle(e.g 30): "))
 scale = float(input("Enter scale(e.g 0.75): "))
 
 fractaltree(n, length, angle, scale)
+
+#Hides the turtle when everything is drawn
+pen.hideturtle()
 
 #keep window open
 turtle.done()
