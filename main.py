@@ -143,7 +143,7 @@ length = int(input("Enter length(e.g 100): "))
 angle = int(input("Enter angle(e.g 30): "))
 scale = float(input("Enter scale(e.g 0.75): "))
 
-fractaltree(n, length, angle, scale)
+randomfractaltree(n, length, angle, scale)
 
 #Hides the turtle when everything is drawn
 pen.hideturtle()
