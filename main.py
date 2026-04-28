@@ -72,7 +72,7 @@ pen.left(90)
 #Recursive function: draws a branch, then calls itself to draw smaller branches
 def fractaltree(n, length, angle, scale):
     if n == 0:
-        pen.dot(6, "green") #draw small green circle at the end of branches to appear as leaves
+        pen.dot(10, "dark green") #draw small green circle at the end of branches to appear as leaves
         return #Base case: stop recursion
 
     #Draw main branch
@@ -106,7 +106,7 @@ def fractaltree(n, length, angle, scale):
 # currently same as fractaltree (will modify with randomness)
 def randomfractaltree(n, length, angle, scale):
     if n == 0:
-        pen.dot(6, "green")  # draw small green circle at the end of branches to appear as leaves
+        pen.dot(10, "dark green")  # draw small green circle at the end of branches to appear as leaves
         return #Base case: stop recursion
 
     #Draw main branch
@@ -117,13 +117,13 @@ def randomfractaltree(n, length, angle, scale):
     direction = pen.heading()
 
     #Randomness section for gamblers
-    angle_variation = random.randint(-10, 10)
+    angle_left = random.randint(-10, 10)
+    angle_right = random.randint(-10, 10)
     scale_variation = random.uniform(0.9, 1.1)
 
-
-    # Draw left branch
-    pen.left(angle + angle_variation)
-    randomfractaltree(n-1, length*scale*scale_variation, angle, scale)
+    #left branch
+    pen.left(angle + angle_left)
+    randomfractaltree(n - 1, length * scale * scale_variation, angle, scale)
 
     #Return to saved position
     pen.penup()
@@ -131,9 +131,9 @@ def randomfractaltree(n, length, angle, scale):
     pen.setheading(direction)
     pen.pendown()
 
-    #draw right branch
-    pen.right(angle + angle_variation)
-    randomfractaltree(n-1, length*scale*scale_variation, angle, scale)
+    #Right branch
+    pen.right(angle + angle_right)
+    randomfractaltree(n - 1, length * scale * scale_variation, angle, scale)
 
     #return again to original position
     pen.penup()
