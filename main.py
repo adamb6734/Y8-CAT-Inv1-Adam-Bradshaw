@@ -72,6 +72,7 @@ pen.left(90)
 #Recursive function: draws a branch, then calls itself to draw smaller branches
 def fractaltree(n, length, angle, scale):
     if n == 0:
+        pen.dot(6, "green") #draw small green circle at the end of branches to appear as leaves
         return #Base case: stop recursion
 
     #Draw main branch
@@ -105,6 +106,7 @@ def fractaltree(n, length, angle, scale):
 # currently same as fractaltree (will modify with randomness)
 def randomfractaltree(n, length, angle, scale):
     if n == 0:
+        pen.dot(6, "green")  # draw small green circle at the end of branches to appear as leaves
         return #Base case: stop recursion
 
     #Draw main branch
@@ -143,10 +145,24 @@ def randomfractaltree(n, length, angle, scale):
 #User input (menu system for Task 9)
 print("Fractal Tree Generator")
 print("Recommended input: (8,100,30,0.75)")
-n = int(input("Enter level(e.g 4, 6, 10): "))
-length = int(input("Enter length(e.g 100): "))
-angle = int(input("Enter angle(e.g 30): "))
-scale = float(input("Enter scale(e.g 0.75): "))
+
+# Get inputs (strings first)
+n = turtle.textinput("Level", "Enter tree level:")
+length = turtle.textinput("Length", "Enter branch length:")
+angle = turtle.textinput("Angle", "Enter angle between adjacent branches:")
+scale_input = turtle.textinput("Scale", "Enter branch length scale (e.g. 0.75):")
+
+# Convert to correct types
+n = int(n)
+length = int(length)
+angle = int(angle)
+
+# Handle scale safely (optional input)
+if scale_input is None or scale_input == "":
+    scale = 0.75  # default value
+else:
+    scale = float(scale_input)
+
 
 randomfractaltree(n, length, angle, scale)
 
