@@ -1,5 +1,9 @@
 #fractal trees
 import random
+from turtle import Screen
+
+screen=Screen()
+screen.tracer(0)
 
 def startriangle(n):
     if n > 0:
@@ -106,8 +110,14 @@ def fractaltree(n, length, angle, scale):
 # currently same as fractaltree (will modify with randomness)
 def randomfractaltree(n, length, angle, scale):
     if n == 0:
-        pen.dot(10, "dark green")  # draw small green circle at the end of branches to appear as leaves
+        pen.dot(random.randint(5, 10), "dark green")  # draw small green circle at the end of branches to appear as leaves
         return #Base case: stop recursion
+
+    #Branch thickness.
+    #Thicker near trunk, thinner near leaves + randomness
+
+    thickness=max(1, int(n*random.uniform(0.8, 1.3)))
+    pen.pensize(thickness)
 
     #Draw main branch
     pen.forward(length)
