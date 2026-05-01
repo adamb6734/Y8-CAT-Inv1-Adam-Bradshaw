@@ -58,7 +58,25 @@ import turtle
 
 #Create Screen
 screen = turtle.Screen()
-screen.bgcolor("White")
+screen.bgcolor("lightblue")
+bg = turtle.Turtle()
+bg.hideturtle()
+bg.speed(0)
+
+#draw ground
+bg.penup()
+bg.goto(-400, -200)
+bg.pendown()
+bg.color("forestgreen")
+
+bg.begin_fill()
+for _ in range(2):
+    bg.forward(800)
+    bg.right(90)
+    bg.forward(200)
+    bg.right(90)
+bg.end_fill()
+
 
 #Create turtle object
 pen = turtle.Turtle()
@@ -127,13 +145,13 @@ def randomfractaltree(n, length, angle, scale):
     direction = pen.heading()
 
     #Randomness section for gamblers
-    angle_left = random.randint(-10, 10)
+    angle_left = random.randint(-n, n)
     angle_right = random.randint(-10, 10)
     scale_variation = random.uniform(0.9, 1.1)
 
     #left branch
     pen.left(angle + angle_left)
-    randomfractaltree(n - 1, length * scale * scale_variation, angle, scale)
+    randomfractaltree(n - 1, length * (scale * random.uniform(0.95, 1.05)), angle, scale)
 
     #Return to saved position
     pen.penup()
